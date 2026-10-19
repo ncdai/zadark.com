@@ -119,7 +119,7 @@ const config = {
           // },
           { href: '/sponsors', label: 'Nhà tài trợ', position: 'left' },
           {
-            href: 'https://github.com/quaric/zadark',
+            href: 'https://github.com/ncdai/zadark',
             position: 'right',
             className: 'header-github-link',
             'aria-label': 'GitHub Repository',
@@ -173,7 +173,7 @@ const config = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/quaric/zadark'
+              href: 'https://github.com/ncdai/zadark'
             },
           ],
         }, {
