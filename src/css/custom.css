@@ -27,7 +27,6 @@
   --ifm-card-border-radius: var(--ifm-global-radius);
 
   --ads-by-google-background-color: var(--ifm-color-gray-100);
-  --header-sys-status-bg: #ebedf0;
 
   --background: #fff;
   --foreground: #000;
@@ -45,7 +44,6 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 
   --ads-by-google-background-color: #161617;
-  --header-sys-status-bg: #3b3c3e;
 
   --ifm-hr-background-color: var(--ifm-color-gray-800);
 
@@ -160,28 +158,6 @@ h6 {
   background-color: var(--ifm-navbar-link-color);
   transform: translateY(-1px);
 }
-
-/* .header-status-link {
-  display: flex;
-  align-items: center;
-  border-radius: 0.5rem;
-  background-color: var(--header-sys-status-bg);
-  font-size: 14px;
-}
-.header-status-link svg {
-  display: none;
-}
-.header-status-link::before {
-  content: "";
-  position: relative;
-  top: 1px;
-  display: flex;
-  width: 0.5rem;
-  height: 0.5rem;
-  margin-right: 0.375rem;
-  border-radius: 0.25rem;
-  background-color: var(--ifm-color-success-light);
-} */
 
 .theme-doc-toc-desktop {
   z-index: 1;

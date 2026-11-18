@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
-import mixpanel from 'mixpanel-browser';
 import Link from '@docusaurus/Link';
 import styles from './styles.module.css'
-import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 
 type IProps = {
   url: string;
@@ -10,30 +8,7 @@ type IProps = {
 }
 
 const DownloadCountdown: React.FC<IProps> = ({ url, children }) => {
-  const {
-    siteConfig: { customFields },
-  } = useDocusaurusContext();
-
   const [countdown, setCountdown] = useState(10);
-
-  useEffect(() => {
-    const MIXPANEL_TOKEN = customFields.MIXPANEL_TOKEN as string;
-
-    if (!MIXPANEL_TOKEN) {
-      return;
-    }
-
-    mixpanel.init(MIXPANEL_TOKEN, {
-      debug: false,
-      track_pageview: true,
-      persistence: 'localStorage',
-      batch_requests: false,
-    });
-
-    mixpanel.track("download_waiting", {
-      file: url,
-    });
-  }, []);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -51,24 +26,13 @@ const DownloadCountdown: React.FC<IProps> = ({ url, children }) => {
     return () => clearInterval(timer);
   }, []);
 
-  const startDownload = (isRetry = false) => {
-    try {
-      mixpanel.track(isRetry ? "download_retry" : "download_start", {
-        file: url,
-      }, {
-        send_immediately: true,
-      }, () => {
-        window.location.href = url;
-      });
-    } catch (error) {
-      console.error(error.message)
-      window.location.href = url;
-    }
+  const startDownload = () => {
+    window.location.href = url;
   }
 
   const handleRetryDownloadClick: React.MouseEventHandler<HTMLAnchorElement> = (e) => {
     e.preventDefault();
-    startDownload(true);
+    startDownload();
   }
 
   useEffect(() => {

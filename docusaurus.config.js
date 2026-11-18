@@ -111,13 +111,6 @@ const config = {
           },
           { to: '/blog', label: 'Blog', position: 'left' },
           { href: '/contact', label: 'Liên hệ', position: 'left' },
-          // {
-          //   href: "https://status.quaric.com/status/zadark",
-          //   position: "right",
-          //   className: "header-status-link",
-          //   label: "Online",
-          // },
-          { href: '/sponsors', label: 'Nhà tài trợ', position: 'left' },
           {
             href: 'https://github.com/ncdai/zadark',
             position: 'right',
@@ -160,16 +153,8 @@ const config = {
           title: 'Kênh chính thức',
           items: [
             {
-              label: 'Zalo Official Account',
-              href: 'https://zalo.me/2353934240045322830',
-            },
-            {
               label: 'Facebook',
               href: 'https://www.facebook.com/zadarkcom'
-            },
-            {
-              label: 'YouTube',
-              href: 'https://www.youtube.com/@quaric'
             },
             {
               label: 'GitHub',
@@ -184,9 +169,6 @@ const config = {
           }, {
             label: 'Chính sách bảo mật',
             to: '/privacy-policy',
-          }, {
-            label: "Trạng thái hệ thống",
-            to: "https://status.quaric.com/status/zadark"
           }, {
             html: `<a href="//www.dmca.com/Protection/Status.aspx?id=85a452ca-06aa-4352-bfeb-7cb563dbd2b9&refurl=https://zadark.com/" title="DMCA.com Protection Status" target="_blank" rel="noopener noreferrer" class="dmca-badge"><img src ="https://images.dmca.com/Badges/dmca_protected_16_120.png?ID=85a452ca-06aa-4352-bfeb-7cb563dbd2b9" alt="DMCA.com Protection Status" height="32" /></a>`
           }],
@@ -250,9 +232,6 @@ const config = {
   plugins: [
     require.resolve('docusaurus-plugin-image-zoom'),
   ],
-  customFields: {
-    MIXPANEL_TOKEN: process.env.MIXPANEL_TOKEN,
-  },
   future: {
     v4: {
       removeLegacyPostBuildHeadAttribute: true, // required
