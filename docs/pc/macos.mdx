@@ -17,6 +17,10 @@ Kích hoạt Dark Mode (Chế độ tối) cho Zalo PC trên macOS.
   ></ins>
 </AdsByGoogle> */}
 
+:::warning Bạn dùng Zalo PC 26.11.20 trở lên?
+Các phiên bản này bật cơ chế bảo vệ khiến ZaDark **không cài được** theo cách thông thường. Vui lòng xem [**Hướng dẫn cài đặt nâng cao**](#install-zadark-on-new-zalo-pc).
+:::
+
 :::tip
 Nếu bạn quen thuộc với **Terminal** và **Homebrew**, chúng tôi khuyến khích bạn cài đặt ZaDark với Homebrew theo hướng dẫn [**tại đây**](#install-zadark-with-homebrew).
 :::
@@ -105,6 +109,53 @@ brew untap quaric/zadark
     data-ad-slot="6596816445"
   ></ins>
 </AdsByGoogle>
+
+## Cài ZaDark trên Zalo PC 26.11.20 trở lên (nâng cao) \{#install-zadark-on-new-zalo-pc}
+
+Từ Zalo PC `26.11.20`, Zalo bật cơ chế bảo vệ **ASAR integrity** (kiểm tra tính toàn vẹn của ứng dụng). Mặc định ZaDark sẽ **không cài** trên các bản này để tránh làm Zalo PC không mở được.
+
+Nếu bạn **hiểu và chấp nhận các rủi ro dưới đây**, bạn có thể chủ động bật cờ `ZADARK_DISABLE_ASAR_INTEGRITY=1` để ZaDark tắt kiểm tra này khi cài đặt.
+
+:::danger Đọc kỹ trước khi dùng
+- Cách này **tắt một lớp bảo vệ** của Zalo (chống can thiệp vào ứng dụng).
+- Việc sửa Zalo **có thể vi phạm Điều khoản sử dụng của Zalo**. Mọi rủi ro (kể cả ở mức tài khoản) do bạn tự chịu trách nhiệm.
+- Chỉ dùng nếu bạn hiểu rõ mình đang làm gì. ZaDark không chịu trách nhiệm cho hư hỏng hoặc mất mát phát sinh.
+:::
+
+:::warning Lưu ý
+- Chuyển giao diện Zalo về **Sáng (Light)** trước khi cài đặt.
+- Sau khi cài, bạn sẽ **phải đăng nhập lại Zalo** (do chữ ký ứng dụng thay đổi) và cấp lại quyền **Micro/Camera** khi gọi.
+- Mỗi lần Zalo PC tự cập nhật phiên bản, bạn phải thực hiện lại các bước này.
+:::
+
+Trước khi cài, bạn cần cấp quyền **Quản lý ứng dụng (App Management) cho Terminal**, [xem hướng dẫn](#macos-ventura-bug-app-management). ZaDark sẽ **tự tắt Zalo PC** khi cài, bạn không cần tắt thủ công.
+
+Mở **Terminal** và chạy trong **cùng một phiên** (đóng cửa sổ Terminal là cờ tự mất).
+
+### Với Homebrew (khuyến nghị) \{#enable-flag-with-homebrew}
+
+Nếu bạn đã cài ZaDark [bằng Homebrew](#install-zadark-with-homebrew):
+
+```bash
+export ZADARK_DISABLE_ASAR_INTEGRITY=1
+zadark install
+```
+
+### Với tập tin ZaDark đã tải về \{#enable-flag-with-file}
+
+Tải ZaDark rồi **giải nén** tập tin `.zip` (thường trong thư mục Downloads) để có tập tin `zadark`. Với cách này macOS có thể chặn tập tin chưa xác minh (**unidentified developer**), xem cách mở ở mục [Các lỗi thường gặp](#common-errors).
+
+```bash
+# Đi tới thư mục chứa tập tin ZaDark (thường là Downloads)
+cd ~/Downloads
+
+export ZADARK_DISABLE_ASAR_INTEGRITY=1
+./zadark install
+```
+
+Sau khi mở Zalo, nhập mật khẩu máy khi được hỏi quyền **Keychain**, rồi đăng nhập lại Zalo. Nếu thấy giao diện ZaDark là đã thành công.
+
+Để **gỡ ZaDark**, chạy lại với **cùng biến** đó và thay `install` bằng `uninstall`.
 
 ## Các lỗi thường gặp \{#common-errors}
 

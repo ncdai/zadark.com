@@ -17,6 +17,10 @@ Kích hoạt Dark Mode (Chế độ tối) cho Zalo PC trên Windows.
   ></ins>
 </AdsByGoogle> */}
 
+:::warning Bạn dùng Zalo PC 26.11.20 trở lên?
+Các phiên bản này bật cơ chế bảo vệ khiến ZaDark **không cài được** theo cách thông thường. Vui lòng xem [**Hướng dẫn cài đặt nâng cao**](#install-zadark-on-new-zalo-pc).
+:::
+
 ## Hướng dẫn cài đặt ZaDark \{#install-zadark}
 
 :::warning
@@ -75,6 +79,53 @@ zadark uninstall
 # Kiểm tra phiên bản ZaDark
 zadark -v
 ```
+
+## Cài ZaDark trên Zalo PC 26.11.20 trở lên (nâng cao) \{#install-zadark-on-new-zalo-pc}
+
+Từ Zalo PC `26.11.20`, Zalo bật cơ chế bảo vệ **ASAR integrity** (kiểm tra tính toàn vẹn của ứng dụng). Mặc định ZaDark sẽ **không cài** trên các bản này để tránh làm Zalo PC không mở được.
+
+Nếu bạn **hiểu và chấp nhận các rủi ro dưới đây**, bạn có thể chủ động bật cờ `ZADARK_DISABLE_ASAR_INTEGRITY=1` để ZaDark tắt kiểm tra này khi cài đặt.
+
+:::danger Đọc kỹ trước khi dùng
+- Cách này **tắt một lớp bảo vệ** của Zalo (chống can thiệp vào ứng dụng).
+- Việc sửa Zalo **có thể vi phạm Điều khoản sử dụng của Zalo**. Mọi rủi ro (kể cả ở mức tài khoản) do bạn tự chịu trách nhiệm.
+- Chỉ dùng nếu bạn hiểu rõ mình đang làm gì. ZaDark không chịu trách nhiệm cho hư hỏng hoặc mất mát phát sinh.
+:::
+
+:::warning Lưu ý
+- Chuyển giao diện Zalo về **Sáng (Light)** trước khi cài đặt.
+- Mỗi lần Zalo PC tự cập nhật phiên bản, bạn phải thực hiện lại các bước này.
+:::
+
+ZaDark sẽ **tự tắt Zalo PC** khi cài, bạn không cần tắt thủ công.
+
+### Với tập tin ZaDark đã tải về \{#enable-flag-with-file}
+
+**Bước 1.** Tải ZaDark rồi **giải nén** tập tin `.zip` (thường trong thư mục Downloads). Sau khi giải nén bạn sẽ thấy tập tin `.exe`, ví dụ `zadark26.4-windows.exe`.
+
+**Bước 2.** Mở **Windows PowerShell** tại thư mục chứa tập tin đó và chạy trong **cùng một phiên** (đóng cửa sổ PowerShell là cờ tự mất):
+
+```powershell
+# Đi tới thư mục chứa tập tin ZaDark (thường là Downloads)
+cd ~\Downloads
+
+# Bật cờ cho phiên hiện tại
+$env:ZADARK_DISABLE_ASAR_INTEGRITY = "1"
+
+# Chạy ZaDark (gõ .\zadark rồi nhấn phím Tab để PowerShell tự điền đúng tên tập tin)
+.\zadark26.4-windows.exe install
+```
+
+### Với Scoop \{#enable-flag-with-scoop}
+
+Nếu bạn đã cài ZaDark [bằng Scoop](#install-zadark-with-scoop):
+
+```powershell
+$env:ZADARK_DISABLE_ASAR_INTEGRITY = "1"
+zadark install
+```
+
+Mở lại Zalo PC. Nếu thấy giao diện ZaDark là đã thành công. Để **gỡ ZaDark**, chạy lại với **cùng cờ** đó và thay `install` bằng `uninstall`.
 
 ## Các lỗi thường gặp \{#common-errors}
 
