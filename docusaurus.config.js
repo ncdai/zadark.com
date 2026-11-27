@@ -78,11 +78,18 @@ const config = {
         content: 'zalo dark mode, cách bật dark mode trên zalo pc, dark mode cho zalo pc, tải zalo dark mode, zalo dark, cách đổi nền zalo màu đen trên máy tính, thay đổi giao diện zalo màu đen trên máy tính, chỉnh zalo màu đen pc, cách chỉnh zalo thành màu đen, cách chuyển zalo sang màu đen, ẩn đang soạn tin zalo'
       }],
       announcementBar: {
-        id: `zadark_release_${packageJSON.version.replace(/\./g, '')}`,
-        content: `Bản cập nhật <strong>ZaDark ${packageJSON.version}</strong> đã được phát hành 🎉 <a href="/blog/changelog#zadark-${packageJSON.version.replace(/\./g, '')}">Xem thay đổi</a>`,
-        backgroundColor: '#0068ff',
+        id: 'zadark_noti_zalopc_new_version',
+        content: 'Nếu bạn <strong>không mở được Zalo PC</strong> sau khi cài ZaDark, <a href="/blog/noti#zalo-pc-phien-ban-moi">Nhấn vào đây</a> để xem cách khắc phục.',
+        backgroundColor: '#dc2626',
         textColor: '#fff',
+        isCloseable: false,
       },
+      // announcementBar: {
+      //   id: `zadark_release_${packageJSON.version.replace(/\./g, '')}`,
+      //   content: `Bản cập nhật <strong>ZaDark ${packageJSON.version}</strong> đã được phát hành 🎉 <a href="/blog/changelog#zadark-${packageJSON.version.replace(/\./g, '')}">Xem thay đổi</a>`,
+      //   backgroundColor: '#0068ff',
+      //   textColor: '#fff',
+      // },
       // announcementBar: {
       //   id: 'zadark_product_hunt',
       //   content: 'ZaDark đã có mặt trên <strong>Product Hunt</strong>. Nếu bạn yêu thích ZaDark đừng quên để lại <strong>1 Vote</strong> nhé! <a href="https://www.producthunt.com/posts/zadark-zalo-dark-mode">Vote ZaDark</a>',
